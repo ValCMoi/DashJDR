@@ -14,7 +14,6 @@ export class Elf extends Race {
 
     constructor(){
         super()
-        this.setCouleur("#baabff")
         this.setStats(this.statsConfig)
     }
 

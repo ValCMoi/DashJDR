@@ -14,7 +14,6 @@ export class Orc extends Race {
 
     constructor(){
         super()
-        this.setCouleur("#baffba")
         this.setStats(this.statsConfig)
     }
 

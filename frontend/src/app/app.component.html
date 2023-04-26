@@ -1,3 +1,7 @@
 <h1>Welcome to your project 2</h1>
-{{title}}
+
+<ul *ngFor="let race of races" >
+    <li class="{{race.getNom()|raceBadge}}">{{race.getNom()}}</li>
+</ul>
+
 <router-outlet></router-outlet>

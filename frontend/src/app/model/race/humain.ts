@@ -14,7 +14,6 @@ export class Humain extends Race {
 
     constructor(){
         super()
-        this.setCouleur("#baabba")
         this.setStats(this.statsConfig)
     }
 
