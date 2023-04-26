@@ -43,13 +43,13 @@ export class Character extends Statable{
         if(this.getRace()){
             let statCharacter = this.getRace().getStats()
 
-
-            this.getFactions().map(el => statCharacter.setForce(statCharacter.getForce() + el.getStats().getForce()))
-            this.getFactions().map(el => statCharacter.setIntelligence(statCharacter.getIntelligence() + el.getStats().getIntelligence()))
-            this.getFactions().map(el => statCharacter.setCharisme(statCharacter.getCharisme() + el.getStats().getCharisme()))
-            this.getFactions().map(el => statCharacter.setDextérité(statCharacter.getDextérité() + el.getStats().getDextérité()))
-            this.getFactions().map(el => statCharacter.setConstitution(statCharacter.getConstitution() + el.getStats().getConstitution()))
-    
+            this.getFactions().map(el => {
+                statCharacter.setForce(statCharacter.getForce() + el.getStats().getForce())
+                statCharacter.setIntelligence(statCharacter.getIntelligence() + el.getStats().getIntelligence())
+                statCharacter.setCharisme(statCharacter.getCharisme() + el.getStats().getCharisme())
+                statCharacter.setDextérité(statCharacter.getDextérité() + el.getStats().getDextérité())
+                statCharacter.setConstitution(statCharacter.getConstitution() + el.getStats().getConstitution())
+            })
     
             return statCharacter
         }
