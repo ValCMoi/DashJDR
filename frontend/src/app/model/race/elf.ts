@@ -1,20 +1,11 @@
 import { Race } from "./race";
-import { StatsRace } from "./stats-race";
+import { StatsCharacter } from "./stats-character";
 
 export class Elf extends Race {
-   
-    private statsConfig:StatsRace =                 
-        {
-            force:          2,
-            intelligence:   8,
-            charisme:       5,
-            dexterité:      7,
-            constitution:   3,
-        }
-
+    
     constructor(){
         super()
-        this.setStats(this.statsConfig)
+        this.setStats(new StatsCharacter(2,8,5,7,3))
     }
 
 }

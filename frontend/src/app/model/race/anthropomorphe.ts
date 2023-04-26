@@ -1,20 +1,11 @@
 import { Race } from "./race";
-import { StatsRace } from "./stats-race";
+import { StatsCharacter } from "./stats-character";
 
-export class Anthropomorphe extends Race {
-   
-    private statsConfig:StatsRace =                 
-        {
-            force:          6,
-            intelligence:   6,
-            charisme:       4,
-            dexterité:      7,
-            constitution:   3,
-        }
+export class Anthropomorphe extends Race {     
 
     constructor(){
         super()
-        this.setStats(this.statsConfig)
+        this.setStats(new StatsCharacter(6,6,4,7,3))
     }
 
 }

@@ -1,27 +1,9 @@
-import { StatsRace } from "./stats-race";
+import { Statable } from "../statable/Statable";
+import { StatsCharacter } from "./stats-character";
 
-export class Race {
+export class Race extends Statable{
 
-    private nom!:string;
     private couleur!:string;
-    private stats!:StatsRace
-
-    
-    constructor(){
-        this.nom = this.constructor.name
-    }
-
-    getNom():string{
-        return this.nom
-    }
-
-    getStats():StatsRace{
-        return this.stats
-    }
-
-    setStats(stats: StatsRace){
-        this.stats = stats
-    }
 
     getCouleur():string{
         return this.couleur

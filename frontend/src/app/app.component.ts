@@ -4,6 +4,10 @@ import { Race } from './model/race/race';
 import { Humain } from './model/race/humain';
 import { Orc } from './model/race/orc';
 import { Anthropomorphe } from './model/race/anthropomorphe';
+import { Character } from './model/character/character';
+import { Marchand } from './model/faction/marchand';
+import { Guerrier } from './model/faction/guerrier';
+import { Mage } from './model/faction/mage';
 
 
 @Component({
@@ -14,12 +18,17 @@ import { Anthropomorphe } from './model/race/anthropomorphe';
 
 export class AppComponent implements OnInit{
   races:Race[] = []
+  stats!:string
+  pseudo!:string
+  race!:string
+  character!:Character 
 
   ngOnInit(): void {
-    this.races.push(new Humain())       
-    this.races.push(new Elf())       
-    this.races.push(new Orc())       
-    this.races.push(new Anthropomorphe())         
+
+    this.character = new Character("ValCMoi", new Elf(), [new Guerrier(5)])   
+    this.stats = this.character.getStats().toArray().toString()
+    this.pseudo = this.character.getNom()
+    this.race = this.character.getRace().getNom()
   }
 
 }
