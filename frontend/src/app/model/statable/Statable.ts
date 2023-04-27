@@ -1,4 +1,3 @@
-import { StatsCharacter } from "../race/stats-character";
 import { Stats } from "../stats/stats";
 import { StatsNameEnum } from "../stats/stats-name.enum";
 

@@ -1,5 +1,4 @@
 import { Statable } from "../statable/Statable";
-import { StatsCharacter } from "./stats-character";
 
 export class Race extends Statable{
 

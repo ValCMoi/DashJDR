@@ -1,4 +1,3 @@
-import { StatsCharacter } from "../race/stats-character";
 import { Statable } from "../statable/Statable";
 import { Stats } from "../stats/stats";
 

@@ -2,10 +2,8 @@ import { Faction } from "../faction/faction";
 import { Guerrier } from "../faction/guerrier";
 import { Humain } from "../race/humain";
 import { Race } from "../race/race";
-import { StatsCharacter } from "../race/stats-character";
 import { Statable } from "../statable/Statable";
 import { Stats } from "../stats/stats";
-import { StatsNameEnum } from "../stats/stats-name.enum";
 
 export class Character extends Statable{
 

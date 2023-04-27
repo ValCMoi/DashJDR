@@ -2,6 +2,6 @@ export enum StatsNameEnum {
     FORCE = "Force",
     INTELLIGENCE = "Intelligence",
     CHARISME = "Charisme",
-    DEXTERITE = "Dexterite",
+    DEXTERITE = "Déxtérité",
     CONSTITUTION = "Constitution",
 }

@@ -1,7 +1,5 @@
-import { Statable } from "../statable/Statable";
 import { StatsNameEnum } from "../stats/stats-name.enum";
 import { Race } from "./race";
-import { StatsCharacter } from "./stats-character";
 
 export class Anthropomorphe extends Race {     
 

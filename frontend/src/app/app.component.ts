@@ -25,20 +25,18 @@ export class AppComponent implements OnInit{
   pseudo!:string
   
   characterRace!:string
-  character:Character = new Character()
+  character!:Character
   stab:Statable = new Statable()
 
   ngOnInit(): void {
     
+    this.character = new Character()
     this.character.setNom("Dylan")
-    this.character.setRace(new Elf())
+    this.character.setRace(new Orc())
     this.character.addFaction(new Guerrier())
     this.character.getFactions()[0].setLevel(5)
 
     this.character.setStat(StatsNameEnum.CHARISME, 42)
-
-    console.log(this.character.getStats())
-
     this.stats = this.character.getStats().map(s => `${s.getNom()}: ${s.getValeur()}`).toString()
     this.stats = this.character.getStatsTotal().map(s => `${s.getNom()}: ${s.getValeur()}`).toString()
     this.characterRace = this.character.getRace().getNom()
