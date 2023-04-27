@@ -1,24 +1,24 @@
 import { StatsCharacter } from "../race/stats-character";
+import { Statable } from "../statable/Statable";
+import { StatsNameEnum } from "../stats/stats-name.enum";
 import { Faction } from "./faction";
 
 export class Mercenaire extends Faction{   
 
     constructor(level:number = 1){
-        super(
-            [
-                new StatsCharacter().setDexterite(2).setForce(1), 
-                new StatsCharacter().setDexterite(3).setForce(1), 
-                new StatsCharacter().setDexterite(5).setForce(2), 
-                new StatsCharacter().setDexterite(6).setForce(2), 
-                new StatsCharacter().setDexterite(7).setForce(3), 
-                new StatsCharacter().setDexterite(9).setForce(3), 
-                new StatsCharacter().setDexterite(10).setForce(3), 
-                new StatsCharacter().setDexterite(11).setForce(4), 
-                new StatsCharacter().setDexterite(12).setForce(4), 
-                new StatsCharacter().setDexterite(14).setForce(4), 
-            ]            ,
-            level 
-        )
-
+        super()
+        let levelStats = [
+            new Statable().setStat(StatsNameEnum.DEXTERITE, 2).setStat(StatsNameEnum.FORCE, 1),
+            new Statable().setStat(StatsNameEnum.DEXTERITE, 3).setStat(StatsNameEnum.FORCE, 1),
+            new Statable().setStat(StatsNameEnum.DEXTERITE, 5).setStat(StatsNameEnum.FORCE, 2),
+            new Statable().setStat(StatsNameEnum.DEXTERITE, 6).setStat(StatsNameEnum.FORCE, 2),
+            new Statable().setStat(StatsNameEnum.DEXTERITE, 7).setStat(StatsNameEnum.FORCE, 3),
+            new Statable().setStat(StatsNameEnum.DEXTERITE, 9).setStat(StatsNameEnum.FORCE, 3),
+            new Statable().setStat(StatsNameEnum.DEXTERITE, 10).setStat(StatsNameEnum.FORCE, 3),
+            new Statable().setStat(StatsNameEnum.DEXTERITE, 11).setStat(StatsNameEnum.FORCE, 4),
+            new Statable().setStat(StatsNameEnum.DEXTERITE, 12).setStat(StatsNameEnum.FORCE, 4),
+            new Statable().setStat(StatsNameEnum.DEXTERITE, 14).setStat(StatsNameEnum.FORCE, 4),
+        ]
+        this.setLevelStats(levelStats)
     }
 }

@@ -9,6 +9,8 @@ import { Marchand } from './model/faction/marchand';
 import { Guerrier } from './model/faction/guerrier';
 import { Mage } from './model/faction/mage';
 import { Mercenaire } from './model/faction/mercenaire';
+import { Statable } from './model/statable/Statable';
+import { StatsNameEnum } from './model/stats/stats-name.enum';
 
 
 @Component({
@@ -23,24 +25,24 @@ export class AppComponent implements OnInit{
   pseudo!:string
   
   characterRace!:string
-  character!:Character 
+  character:Character = new Character()
+  stab:Statable = new Statable()
 
   ngOnInit(): void {
-    console.log(new Mercenaire(5).getStats().toArray())
-
-    //this.character = new Character("Paskal", new Orc(), [ new Mage(8), new Mercenaire(5) ])   
     
-    this.races.push(new Humain()) 
-    this.races.push(new Elf()) 
-    this.races.push(new Orc()) 
-    
-    this.character = new Character("Dylan", new Elf(), [ new Mage(7) ])   
+    this.character.setNom("Dylan")
+    this.character.setRace(new Elf())
+    this.character.addFaction(new Guerrier())
+    this.character.getFactions()[0].setLevel(5)
 
-    this.stats = this.character.getStats().toArray().toString()
+    this.character.setStat(StatsNameEnum.CHARISME, 42)
+
+    console.log(this.character.getStats())
+
+    this.stats = this.character.getStats().map(s => `${s.getNom()}: ${s.getValeur()}`).toString()
+    this.stats = this.character.getStatsTotal().map(s => `${s.getNom()}: ${s.getValeur()}`).toString()
     this.characterRace = this.character.getRace().getNom()
-
     this.pseudo = this.character.getNom()
-    
-  }
 
+  }
 }

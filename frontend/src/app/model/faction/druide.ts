@@ -1,24 +1,23 @@
-import { StatsCharacter } from "../race/stats-character";
+import { Statable } from "../statable/Statable";
+import { StatsNameEnum } from "../stats/stats-name.enum";
 import { Faction } from "./faction";
 
 export class Druide extends Faction{
 
-    constructor(level:number = 1){
-        super(
-            [
-                new StatsCharacter().setIntelligence(2).setCharisme(1), 
-                new StatsCharacter().setIntelligence(3).setCharisme(1), 
-                new StatsCharacter().setIntelligence(5).setCharisme(2), 
-                new StatsCharacter().setIntelligence(6).setCharisme(2), 
-                new StatsCharacter().setIntelligence(7).setCharisme(3), 
-                new StatsCharacter().setIntelligence(9).setCharisme(3), 
-                new StatsCharacter().setIntelligence(10).setCharisme(3), 
-                new StatsCharacter().setIntelligence(11).setCharisme(4), 
-                new StatsCharacter().setIntelligence(12).setCharisme(4), 
-                new StatsCharacter().setIntelligence(14).setCharisme(4), 
-        
-            ],
-            level
-        )
+    constructor(){
+        super()
+        let levelStats = [
+            new Statable().setStat(StatsNameEnum.INTELLIGENCE, 2).setStat(StatsNameEnum.CHARISME, 1),
+            new Statable().setStat(StatsNameEnum.INTELLIGENCE, 3).setStat(StatsNameEnum.CHARISME, 1),
+            new Statable().setStat(StatsNameEnum.INTELLIGENCE, 5).setStat(StatsNameEnum.CHARISME, 2),
+            new Statable().setStat(StatsNameEnum.INTELLIGENCE, 6).setStat(StatsNameEnum.CHARISME, 2),
+            new Statable().setStat(StatsNameEnum.INTELLIGENCE, 7).setStat(StatsNameEnum.CHARISME, 3),
+            new Statable().setStat(StatsNameEnum.INTELLIGENCE, 9).setStat(StatsNameEnum.CHARISME, 3),
+            new Statable().setStat(StatsNameEnum.INTELLIGENCE, 10).setStat(StatsNameEnum.CHARISME, 3),
+            new Statable().setStat(StatsNameEnum.INTELLIGENCE, 11).setStat(StatsNameEnum.CHARISME, 4),
+            new Statable().setStat(StatsNameEnum.INTELLIGENCE, 12).setStat(StatsNameEnum.CHARISME, 4),
+            new Statable().setStat(StatsNameEnum.INTELLIGENCE, 14).setStat(StatsNameEnum.CHARISME, 4),
+        ]
+        this.setLevelStats(levelStats)
     }
 }

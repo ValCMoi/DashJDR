@@ -4,22 +4,24 @@ import { Humain } from "../race/humain";
 import { Race } from "../race/race";
 import { StatsCharacter } from "../race/stats-character";
 import { Statable } from "../statable/Statable";
+import { Stats } from "../stats/stats";
+import { StatsNameEnum } from "../stats/stats-name.enum";
 
 export class Character extends Statable{
 
     private race!:Race
     private factions!:Faction[]
-
-    constructor(nom: string, race: Race = new Humain, factions: Faction[] = [new Guerrier()]){
+    
+    constructor(nom: string = "NA", race: Race = new Humain, factions: Faction[] = [new Guerrier()]){
         super()
         this.setNom(nom)
         this.setRace(race)
         this.setFactions(factions)
     }
 
-
     setRace(race: Race):void{
         this.race = race
+        this.setStats(race.getStats())
     }
 
     getRace():Race{
@@ -30,32 +32,50 @@ export class Character extends Statable{
         return this.factions
     }
 
+    addFaction(faction: Faction){
+        if(!this.factions.find(f => f.getNom() == faction.getNom())){
+            this.setFactions([...this.factions, faction])
+        }
+    }
+
     setFactions(factions: Faction[]){
         this.factions = factions
     }
     
-    //TODO refacto cette partie pour faire appelle à du polymorphisme, il faut penser à rendre generique le type des stats et creer un enum des nom de stats afin d'avoir juste à boucler dessus 
-    /**
-     * 
-     * @returns 
-     */
-    override getStats(): StatsCharacter {
-        if(this.getRace()){
-            let statCharacter = this.getRace().getStats()
+    getStatsFaction():Stats[]{
+        let statsCalcule:Stats[] = this.getStats()
 
-            this.getFactions().map(job => {
-                console.log(job.getNom())
-                statCharacter.setForce(statCharacter.getForce() + job.getStats().getForce())
-                statCharacter.setIntelligence(statCharacter.getIntelligence() + job.getStats().getIntelligence())
-                statCharacter.setCharisme(statCharacter.getCharisme() + job.getStats().getCharisme())
-                statCharacter.setDexterite(statCharacter.getDexterite() + job.getStats().getDexterite())
-                statCharacter.setConstitution(statCharacter.getConstitution() + job.getStats().getConstitution())
-                console.table(statCharacter.toArray())
+        let arrBonusFaction:Stats[] = []
+
+        this.getFactions().forEach(faction => {
+            faction.getStats().forEach(factionStat => {
+                let statArr = arrBonusFaction.find(el =>el.getNom() == factionStat.getNom())
+                if(statArr){
+                    statArr.setValeur(statArr.getValeur() + factionStat.getValeur())
+                }else{
+                    arrBonusFaction.push(new Stats(factionStat.getNom(), factionStat.getValeur()))
+                }
             })
-    
-            return statCharacter
-        }
-        return new StatsCharacter()
+        })
+
+        
+        statsCalcule.forEach((stat, idx) => {
+                stat.setValeur(stat.getValeur() + arrBonusFaction[idx].getValeur()) 
+        });
+        
+        return arrBonusFaction
     }
 
+    getStatsTotal(): Stats[] {
+        let statsTotal:Stats[] = this.getStats()
+        let statsFaction:Stats[] = this.getStatsFaction()
+
+        statsTotal.forEach(stat => {
+            if(statsFaction.find(sf => sf.getNom() == stat.getNom())){
+                stat.setValeur(stat.getValeur() + (statsFaction.find(sf => sf.getNom() == stat.getNom())?.getValeur() ?? 0))
+            }
+        })
+
+        return statsTotal
+    }
 }

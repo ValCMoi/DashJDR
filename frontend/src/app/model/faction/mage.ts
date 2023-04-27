@@ -1,24 +1,25 @@
 import { StatsCharacter } from "../race/stats-character";
+import { Statable } from "../statable/Statable";
+import { StatsNameEnum } from "../stats/stats-name.enum";
 import { Faction } from "./faction";
 
 export class Mage extends Faction{
 
     constructor(level:number = 1){
-        super(
-            [
-                new StatsCharacter().setIntelligence(2).setDexterite(1), 
-                new StatsCharacter().setIntelligence(3).setDexterite(1), 
-                new StatsCharacter().setIntelligence(5).setDexterite(2), 
-                new StatsCharacter().setIntelligence(6).setDexterite(2), 
-                new StatsCharacter().setIntelligence(7).setDexterite(3), 
-                new StatsCharacter().setIntelligence(9).setDexterite(3), 
-                new StatsCharacter().setIntelligence(10).setDexterite(3), 
-                new StatsCharacter().setIntelligence(11).setDexterite(4), 
-                new StatsCharacter().setIntelligence(12).setDexterite(4), 
-                new StatsCharacter().setIntelligence(14).setDexterite(4), 
-        
-            ],
-            level
-        )
+        super()
+
+        let levelStats = [
+            new Statable().setStat(StatsNameEnum.INTELLIGENCE, 2).setStat(StatsNameEnum.DEXTERITE, 1),
+            new Statable().setStat(StatsNameEnum.INTELLIGENCE, 3).setStat(StatsNameEnum.DEXTERITE, 1),
+            new Statable().setStat(StatsNameEnum.INTELLIGENCE, 5).setStat(StatsNameEnum.DEXTERITE, 2),
+            new Statable().setStat(StatsNameEnum.INTELLIGENCE, 6).setStat(StatsNameEnum.DEXTERITE, 2),
+            new Statable().setStat(StatsNameEnum.INTELLIGENCE, 7).setStat(StatsNameEnum.DEXTERITE, 3),
+            new Statable().setStat(StatsNameEnum.INTELLIGENCE, 9).setStat(StatsNameEnum.DEXTERITE, 3),
+            new Statable().setStat(StatsNameEnum.INTELLIGENCE, 10).setStat(StatsNameEnum.DEXTERITE, 3),
+            new Statable().setStat(StatsNameEnum.INTELLIGENCE, 11).setStat(StatsNameEnum.DEXTERITE, 4),
+            new Statable().setStat(StatsNameEnum.INTELLIGENCE, 12).setStat(StatsNameEnum.DEXTERITE, 4),
+            new Statable().setStat(StatsNameEnum.INTELLIGENCE, 14).setStat(StatsNameEnum.DEXTERITE, 4),
+        ]
+        this.setLevelStats(levelStats)
     }
 }
