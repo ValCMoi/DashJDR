@@ -2,14 +2,14 @@ export class StatsCharacter {
     private force!:number
     private intelligence!:number
     private charisme!:number
-    private dextérité!:number
+    private dexterite!:number
     private constitution!:number
 
-    constructor(force:number = 0, intelligence:number = 0, charisme:number = 0, dextérité:number = 0, constitution:number = 0){
+    constructor(force:number = 0, intelligence:number = 0, charisme:number = 0, dexterite:number = 0, constitution:number = 0){
         this.force = force
         this.intelligence = intelligence
         this.charisme = charisme
-        this.dextérité = dextérité
+        this.dexterite = dexterite
         this.constitution = constitution
     }
 
@@ -40,13 +40,13 @@ export class StatsCharacter {
         return this.charisme 
     }
 
-    setDextérité(newValue: number = 0): StatsCharacter{
-        this.dextérité = newValue
+    setDexterite(newValue: number = 0): StatsCharacter{
+        this.dexterite = newValue
         return this
     }
 
-    getDextérité(): number{
-        return this.dextérité 
+    getDexterite(): number{
+        return this.dexterite 
     }
 
     setConstitution(newValue: number = 0): StatsCharacter{
@@ -63,7 +63,7 @@ export class StatsCharacter {
             this.getForce(),
             this.getIntelligence(),
             this.getCharisme(),
-            this.getDextérité(),
+            this.getDexterite(),
             this.getConstitution(),
         ]
     }

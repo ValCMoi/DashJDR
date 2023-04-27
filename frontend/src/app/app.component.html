@@ -4,8 +4,9 @@
     <li class="{{race.getNom()|raceBadge}}">{{race.getNom()}}</li>
 </ul>
 
-<div class="{{race|raceBadge}}">
-    <h2>{{pseudo}}{{stats}}</h2>
-</div>
+<span class="{{characterRace|raceBadge}}">
+    <h2>{{pseudo}}</h2>
+    <h2>{{stats}}</h2>
+</span>
 
 <router-outlet></router-outlet>
