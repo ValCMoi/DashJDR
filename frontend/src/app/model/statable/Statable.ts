@@ -38,5 +38,8 @@ export class Statable{
         return this.nom
     }
 
+    clearStats(){
+        this.stats = []
+    }
 
 }

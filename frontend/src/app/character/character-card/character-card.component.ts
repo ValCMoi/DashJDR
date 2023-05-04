@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Character } from 'src/app/model/character/character';
 
 @Component({
   selector: 'character-card',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class CharacterCardComponent {
   
+  @Input() character:Character = new Character()
+
 }

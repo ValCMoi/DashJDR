@@ -22,6 +22,9 @@ import { StatsNameEnum } from './model/stats/stats-name.enum';
 export class AppComponent implements OnInit{
   races:Race[] = []
   stats!:string
+  statsRace!:string
+  statsFaction!:string
+  statsTotal!:string
   pseudo!:string
   
   characterRace!:string
@@ -31,14 +34,15 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     
     this.character = new Character()
-    this.character.setNom("Dylan")
+    this.character.setNom("Krusty")
     this.character.setRace(new Orc())
-    this.character.addFaction(new Guerrier())
-    this.character.getFactions()[0].setLevel(5)
+    this.character.setFactions([new Marchand()])
 
-    this.character.setStat(StatsNameEnum.CHARISME, 42)
-    this.stats = this.character.getStats().map(s => `${s.getNom()}: ${s.getValeur()}`).toString()
-    this.stats = this.character.getStatsTotal().map(s => `${s.getNom()}: ${s.getValeur()}`).toString()
+    this.statsRace = this.character.getStats().map(s => `${s.getNom()}: ${s.getValeur()}`).toString()
+    this.statsFaction = this.character.getStatsFaction().map(s => `${s.getNom()}: ${s.getValeur()}`).toString()
+    this.statsTotal = this.character.getStatsTotal().map(s => `${s.getNom()}: ${s.getValeur()}`).toString()
+
+
     this.characterRace = this.character.getRace().getNom()
     this.pseudo = this.character.getNom()
 

@@ -1,1 +1,18 @@
-<p>character-card works!</p>
+<div class="flex">
+    <div *ngIf="character" class="characterCardContainer">
+        <div class="upperCharacterCard">
+            <img src="https://cdna.artstation.com/p/assets/images/images/012/100/790/large/vojtech-novacek-ada.jpg?1533045926">
+        </div>
+        <div class="downCharacterCard">
+            <h3 class="characterPseudo">{{character.getNom()}}</h3>
+            <div class="raceJoueur">
+                <span class="badge {{character.getRace().getNom()|raceBadge}}"><p>{{character.getRace().getNom()|uppercase}}</p></span>
+            </div>
+            <ul class="flex">
+                <li *ngFor="let job of character.getJobsName()" class="badge">{{job}}</li>
+            </ul>
+        </div>
+    </div>
+    <div *ngIf="!character">Some data is missing og character</div>
+    <p>15PV</p>
+</div>

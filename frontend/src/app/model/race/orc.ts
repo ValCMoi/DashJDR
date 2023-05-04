@@ -10,7 +10,6 @@ export class Orc extends Race {
         this.setStat(StatsNameEnum.CHARISME,        3)
         this.setStat(StatsNameEnum.DEXTERITE,       3)
         this.setStat(StatsNameEnum.CONSTITUTION,    9)
-        this.setStat(StatsNameEnum.DIGESTION,    42)
     }
 
 }

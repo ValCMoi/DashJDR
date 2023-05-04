@@ -1,0 +1,45 @@
+.characterCardContainer{
+    height: calc(480px - 1rem);
+    width: calc(320px - 1rem);
+    
+    display: flex;
+    flex-flow: column;
+    
+    background: grey;
+    margin:1rem  ;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition-duration: 0.3s;
+
+}
+
+.characterCardContainer:hover{
+    box-shadow: #1a1a1a 0px 0px 20px;
+    transform: scale(1.03);
+    cursor: pointer;
+
+    transition-duration: 0.3s;
+}
+
+
+.upperCharacterCard{
+    height: 75%;
+    width: 100%;
+    overflow: hidden;
+    background: #a5a5a5;
+}
+
+.upperCharacterCard>img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.characterPseudo{
+    text-align: center;
+}
+
+.listClassCharacter{
+    display: flex;
+}

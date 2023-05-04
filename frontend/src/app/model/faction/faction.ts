@@ -41,6 +41,7 @@ export class Faction extends Statable{
 
     setLevelStats(statsLevel: Statable[]): void {
         this.statsLevel = statsLevel
+        this.setStats(this.getStatsLevel()[this.getLevel()].getStats())
     }
 
     override getStats(): Stats[] {

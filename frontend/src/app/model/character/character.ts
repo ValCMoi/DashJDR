@@ -41,8 +41,6 @@ export class Character extends Statable{
     }
     
     getStatsFaction():Stats[]{
-        let statsCalcule:Stats[] = this.getStats()
-
         let arrBonusFaction:Stats[] = []
 
         this.getFactions().forEach(faction => {
@@ -54,13 +52,7 @@ export class Character extends Statable{
                     arrBonusFaction.push(new Stats(factionStat.getNom(), factionStat.getValeur()))
                 }
             })
-        })
-
-        
-        statsCalcule.forEach((stat, idx) => {
-                stat.setValeur(stat.getValeur() + arrBonusFaction[idx].getValeur()) 
-        });
-        
+        })       
         return arrBonusFaction
     }
 
@@ -75,5 +67,9 @@ export class Character extends Statable{
         })
 
         return statsTotal
+    }
+
+    getJobsName():String[]{
+        return this.getFactions().map(f => `${f.getNom()} lvl:${f.getLevel()}`)
     }
 }
